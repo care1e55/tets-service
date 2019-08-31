@@ -9,13 +9,13 @@ import testservice.data.Task;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@RestController("/task/{id}")
+//@RestController("/task/i")
 public class StatusController {
 
-	@RequestMapping(method= RequestMethod.GET)
-	public Task getTask() {
-		return new Task(UUID.randomUUID(), LocalDateTime.now(),
-				"created");
-	}
+//	@RequestMapping(method= RequestMethod.GET)
+//	public Task getTask() {
+//		return new Task(UUID.randomUUID(), LocalDateTime.now(),
+//				"created");
+//	}
 
 }

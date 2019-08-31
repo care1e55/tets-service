@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS TASKS;
  
 CREATE TABLE TASKS (
-  first_name VARCHAR(250) NOT NULL,
-  last_name VARCHAR(250) NOT NULL,
-  career VARCHAR(250) DEFAULT NULL
+  id VARCHAR(250) NOT NULL,
+  timestamp VARCHAR(250) NOT NULL,
+  status VARCHAR(250) DEFAULT NULL
 );
+
+INSERT INTO tasks (id, timestamp, status) VALUES('1','2','3');

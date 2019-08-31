@@ -23,6 +23,7 @@ public class AppConfig {
 				.setScriptEncoding("UTF-8")
 				.ignoreFailedDrops(true)
 				.addScript("schema.sql")
+				.setName("testdb")
 				.build();
 	}
 

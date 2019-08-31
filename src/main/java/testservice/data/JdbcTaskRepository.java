@@ -17,7 +17,7 @@ public class JdbcTaskRepository implements TaskRepository {
 
 	@Override
 	public Task insertTask(Task task) {
-//		String sqlStr = "insert into tasks";
+		String sqlStr = "insert into tasks";
 //		return template.;
 		return null;
 	}
