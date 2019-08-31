@@ -1,0 +1,7 @@
+testservice/controller/StatusController.class
+testservice/configuration/AppConfig.class
+testservice/controller/TaskController.class
+testservice/data/JdbcTaskRepository.class
+testservice/Main.class
+testservice/data/Task.class
+testservice/data/TaskRepository.class
