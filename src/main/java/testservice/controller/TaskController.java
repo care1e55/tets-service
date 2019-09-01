@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
-@RestController("/task")
+@RestController()
 public class TaskController {
 
-	@RequestMapping(method= RequestMethod.GET)
+	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	public Task createTask() {
 		return new Task(UUID.randomUUID(), LocalDateTime.now(),
 				"created");
