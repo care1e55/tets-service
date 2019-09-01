@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,9 +21,12 @@ public class JdbcTaskRepository implements TaskRepository {
 
 	@Override
 	public Task insertTask(Task task) {
-		String sqlStr = "insert into tasks";
-//		return template.;
-		return null;
+		String sqlStr = "insert into tasks(id, timestamp, status) values(?,?,?)";
+		template.update(sqlStr,
+				task.getId(),
+				task.getTimestamp(),
+				task.getStatus());
+		return task;
 	}
 
 	@Override

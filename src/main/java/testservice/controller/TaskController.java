@@ -20,8 +20,9 @@ public class TaskController {
 
 	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	public Task createTask() {
-		return new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(),
-				"created");
+		Task newtask = new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(),
+				"CREATED");
+		return repository.insertTask(newtask);
 	}
 
 	@RequestMapping(value = "/task/{id}", method= RequestMethod.GET)
@@ -33,8 +34,6 @@ public class TaskController {
 	@ResponseBody
 	public ResponseEntity<Iterable<Task>> showTasks() {
 		return new ResponseEntity<Iterable<Task>>(repository.selectTasks(), HttpStatus.OK);
-//		return repository.selectTasks();
-//		return null;
 	}
 
 }
