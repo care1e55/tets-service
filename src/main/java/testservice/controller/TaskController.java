@@ -20,8 +20,13 @@ public class TaskController {
 
 	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	public Task createTask() {
-		return new Task(UUID.randomUUID(), LocalDateTime.now(),
+		return new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(),
 				"created");
+	}
+
+	@RequestMapping(value = "/task/{id}", method= RequestMethod.GET)
+	public Task showTask(@PathVariable("id") String id) {
+		return repository.selectTask(id);
 	}
 
 	@RequestMapping(value = "/tasks", method= RequestMethod.GET, produces = "application/json")

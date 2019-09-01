@@ -5,6 +5,6 @@ import java.util.UUID;
 
 public interface TaskRepository {
 	Task insertTask(Task id);
-	Task selectTask(UUID id);
+	Task selectTask(String id);
 	List<Task> selectTasks();
 }

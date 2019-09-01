@@ -7,3 +7,7 @@ CREATE TABLE TASKS (
 );
 
 INSERT INTO tasks (id, timestamp, status) VALUES('1','2','3');
+INSERT INTO tasks (id, timestamp, status) VALUES('2','2','3');
+INSERT INTO tasks (id, timestamp, status) VALUES('3','2','3');
+INSERT INTO tasks (id, timestamp, status) VALUES('4','2','3');
+INSERT INTO tasks (id, timestamp, status) VALUES('5','2','3');

@@ -30,15 +30,12 @@ public class JdbcTaskRepository implements TaskRepository {
 		String sqlStr = "select	* from tasks";
 		List<Task> tasks = template.query(sqlStr, new TaskMapper());
 		return tasks;
-//		return null;
 	}
 
 	@Override
-	public Task selectTask(UUID id) {
+	public Task selectTask(String id) {
 		String sqlStr = "select	* from tasks where id=?";
 		return template.queryForObject(sqlStr, new TaskMapper(), id);
-//		return null;
 	}
-
 
 }

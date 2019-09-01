@@ -12,11 +12,11 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Task {
 
-	private UUID id;
-	private LocalDateTime timestamp;
+	private String id;
+	private String timestamp;
 	private String status;
 
-	public Task(UUID id, LocalDateTime timestamp, String status) {
+	public Task(String id, String timestamp, String status) {
 		this.id = id;
 		this.timestamp = timestamp;
 		this.status = status;
