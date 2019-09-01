@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -25,25 +26,18 @@ public class JdbcTaskRepository implements TaskRepository {
 	}
 
 	@Override
-	public String selectTasks() {
+	public List<Task> selectTasks() {
 		String sqlStr = "select	* from tasks";
-//		return template.queryForList(sqlStr);
-		return sqlStr;
+		List<Task> tasks = template.query(sqlStr, new TaskMapper());
+		return tasks;
+//		return null;
 	}
 
 	@Override
 	public Task selectTask(UUID id) {
-//		String sqlStr = "select	* from tasks where id=?";
-////		return template.queryForObject(sqlStr, RowMapper<Employee>(){
-////			@Override
-////			public Employee mapRow(ResultSet rs, int rownumber) throws SQLException {
-////				Employee e=new Employee();
-////				e.setId(rs.getInt(1));
-////				e.setName(rs.getString(2));
-////				e.setSalary(rs.getInt(3));
-////				return e; },
-////			id);
-		return null;
+		String sqlStr = "select	* from tasks where id=?";
+		return template.queryForObject(sqlStr, new TaskMapper(), id);
+//		return null;
 	}
 
 

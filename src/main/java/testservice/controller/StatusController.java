@@ -25,8 +25,8 @@ public class StatusController {
 //	}
 
 //	@RequestMapping(method=RequestMethod.GET)
-	public String getTask() {
-		return tr.selectTasks();
-	}
+//	public String getTask() {
+//		return tr.selectTasks();
+//	}
 
 }
