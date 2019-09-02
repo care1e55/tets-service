@@ -1,8 +1,10 @@
-testservice/controller/StatusController.class
+testservice/configuration/AsyncConfiguration.class
+testservice/service/TaskService.class
 testservice/configuration/AppConfig.class
 testservice/controller/TaskController.class
 testservice/data/JdbcTaskRepository.class
 testservice/data/TaskMapper.class
 testservice/Main.class
 testservice/data/Task.class
+testservice/service/TaskServiceImpl.class
 testservice/data/TaskRepository.class
