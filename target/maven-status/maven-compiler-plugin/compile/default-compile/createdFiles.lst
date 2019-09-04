@@ -1,10 +1,12 @@
 testservice/configuration/AsyncConfiguration.class
 testservice/service/TaskService.class
 testservice/configuration/AppConfig.class
+testservice/controller/TaskController$NotFoundException.class
 testservice/controller/TaskController.class
-testservice/data/JdbcTaskRepository.class
-testservice/data/TaskMapper.class
 testservice/Main.class
-testservice/data/Task.class
+testservice/controller/TaskController$BadRequestException.class
 testservice/service/TaskServiceImpl.class
 testservice/data/TaskRepository.class
+testservice/data/JdbcTaskRepository.class
+testservice/data/TaskMapper.class
+testservice/data/Task.class

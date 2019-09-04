@@ -29,10 +29,9 @@ public class TaskController {
 		return "execed";
 	}
 
-
 	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public String createTask() {
+	public String createTask() throws Exception {
 		Task newtask = new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(), "CREATED");
 		CompletableFuture<String> employeeAddress = taskService.execute(newtask);
 		return newtask.getId();
@@ -40,7 +39,7 @@ public class TaskController {
 
 	@RequestMapping(value = "/task/{id}", method= RequestMethod.GET)
 	public Task showTask(@PathVariable("id") String id) {
-		return repository.selectTask(id);
+		return taskService.findTask(id);
 	}
 
 	@RequestMapping(value = "/tasks", method= RequestMethod.GET, produces = "application/json")
@@ -48,5 +47,11 @@ public class TaskController {
 	public ResponseEntity<Iterable<Task>> showTasks() {
 		return new ResponseEntity<Iterable<Task>>(repository.selectTasks(), HttpStatus.OK);
 	}
+
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public static class NotFoundException extends RuntimeException {}
+
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public static class BadRequestException extends RuntimeException {}
 
 }
