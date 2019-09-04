@@ -9,13 +9,8 @@ import testservice.data.Task;
 import testservice.service.TaskService;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController()
 public class TaskController {
@@ -26,18 +21,10 @@ public class TaskController {
 	@Autowired
 	TaskService taskService;
 
-//	@RequestMapping(value = "/callable", method= RequestMethod.GET, produces = "text/html")
-//	public Callable<String> exec() {
-//		System.out.println("begin");
-//		Callable<String> callable = taskService::execute;
-//		System.out.println("end");
-//		return callable;
-//	}
-
 	@RequestMapping(value = "/callable", method= RequestMethod.GET, produces = "text/html")
 	public String exec() {
 		System.out.println("begin");
-		CompletableFuture<String> employeeAddress = taskService.execute();
+//		CompletableFuture<String> employeeAddress = taskService.execute();
 		System.out.println("end");
 		return "execed";
 	}
@@ -45,9 +32,10 @@ public class TaskController {
 
 	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public Task createTask() {
+	public String createTask() {
 		Task newtask = new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(), "CREATED");
-		return repository.insertTask(newtask);
+		CompletableFuture<String> employeeAddress = taskService.execute(newtask);
+		return newtask.getId();
 	}
 
 	@RequestMapping(value = "/task/{id}", method= RequestMethod.GET)

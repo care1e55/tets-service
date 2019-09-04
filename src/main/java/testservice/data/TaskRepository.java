@@ -7,4 +7,5 @@ public interface TaskRepository {
 	Task insertTask(Task id);
 	Task selectTask(String id);
 	List<Task> selectTasks();
+	Task updateTaskStatus(Task task);
 }

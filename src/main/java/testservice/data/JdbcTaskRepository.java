@@ -30,6 +30,16 @@ public class JdbcTaskRepository implements TaskRepository {
 	}
 
 	@Override
+	public Task updateTaskStatus(Task task) {
+		String sqlStr = "update tasks set status = ?, timestamp = ? where id = ?";
+		template.update(sqlStr,
+				task.getStatus(),
+				task.getTimestamp(),
+				task.getId());
+		return task;
+	}
+
+	@Override
 	public List<Task> selectTasks() {
 		String sqlStr = "select	* from tasks";
 		List<Task> tasks = template.query(sqlStr, new TaskMapper());
