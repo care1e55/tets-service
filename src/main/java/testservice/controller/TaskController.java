@@ -21,19 +21,11 @@ public class TaskController {
 	@Autowired
 	TaskService taskService;
 
-	@RequestMapping(value = "/callable", method= RequestMethod.GET, produces = "text/html")
-	public String exec() {
-		System.out.println("begin");
-//		CompletableFuture<String> employeeAddress = taskService.execute();
-		System.out.println("end");
-		return "execed";
-	}
-
 	@RequestMapping(value = "/task", method= RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public String createTask() throws Exception {
 		Task newtask = new Task(UUID.randomUUID().toString(), LocalDateTime.now().toString(), "CREATED");
-		CompletableFuture<String> employeeAddress = taskService.execute(newtask);
+		CompletableFuture<String> result = taskService.execute(newtask);
 		return newtask.getId();
 	}
 
