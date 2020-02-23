@@ -24,7 +24,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>spittr.Main</mainClass>
+                                <mainClass>testservice.Main</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
