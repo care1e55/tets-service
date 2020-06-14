@@ -1,4 +1,4 @@
-### test-service
+# test-service
 Test task for Java developer
 
 CRUD application with REST API using Spring Framework:
